@@ -5,7 +5,7 @@ import plotly.express as px
 st.set_page_config(layout= 'wide', page_title= 'diabetes_dataset')
 st.markdown("<h1 style='text-align: center; color: white;'>diabetes dataset with Analysis</h1>", unsafe_allow_html=True)
 st.image('https://elfagr-med.com/media/rokanthemes/blog/images/f/i/file_25.jpg')
-df = pd.read_csv('D:/data science & python/37/cleaned_df.csv',index_col=0)
+df = pd.read_csv('cleaned_df.csv',index_col=0)
 page = st.sidebar.radio('Pages', ['Introduction', 'Analysis Questions', 'Reporting'])
 if page == 'Introduction':
 
