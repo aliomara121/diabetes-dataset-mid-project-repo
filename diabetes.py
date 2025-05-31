@@ -114,4 +114,12 @@ elif page == 'Reporting':
     smoking_status = st.sidebar.selectbox('Smoking_Status', df['Smoking_Status'].unique())
     df2 = df[(df['Sex']== sex) & (df['Ethnicity'] == ethnicity) &(df['Physical_Activity_Level']== physical_activity_level) & (df['Smoking_Status']==smoking_status) ]
     st.dataframe(df2.head(50))
+    st.subheader("Health Indicator Averages for Selected Group")
+    indicators = ['HbA1c', 'BMI', 'Fasting_Blood_Glucose']
+    summary_df = df2[indicators].mean().round(2).reset_index()
+    summary_df.columns = ['Indicator', 'Average Value']
+    st.plotly_chart(
+        px.bar(summary_df, x='Indicator', y='Average Value', text='Average Value', title='Average Health Indicators')
+    )
+
   
